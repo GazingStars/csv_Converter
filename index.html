@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <script defer src="AnimaScript.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="scriptBTN.js"></script>
+    <script async src="script2.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5">
+            <a href="" class="navbar-brand ms-4" href="#">EzConv</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#dropdownMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu">
+                <li><a class="dropdown-item" href="#">CSV Tools</a></li>
+                <li><a class="dropdown-item" href="#">Text Tools</a></li>
+                <li><a class="dropdown-item" href="#">XML Tools</a></li>
+            </ul>
+
+            <div class="collapse navbar-collapse" id="navBar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CSV Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Text Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">XML Tools</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="ms-3 ms-lg-5 mt-4 me-3">
+        <h1>CSV to XLSX Converter</h1>
+        <p> Convert .csv file to .xlsx file easily for free. Copy/paste data or upload csv file and then configure
+            parsing/optional data transformation options to get Excel file/data.
+        </p>
+
+        <div class="d-flex gap-5 mb-5 mt-5">
+            <div class="mb-3 flex-grow-1 text-center">
+                <label for="coloredTextareaF" class="form-label form-control-lg">Input Data</label>
+                <textarea class="form-control border-success bg-light shadow rounded-3 custom-scrollbar"
+                    id="coloredTextareaF" rows="4"></textarea>
+                    <div class="mb-3 mt-3 animate__animated animate__pulse" id="delimiterSelectDiv">
+                        <label for="delimiterSelect" class="form-label">Выберите разделитель</label>
+                        <select class="form-select" id="delimiterSelect">
+                            <option value="," selected>Запятая (,)</option>
+                            <option value=";">Точка с запятой (;)</option>
+                            <option value="\t">Табуляция (Tab)</option>
+                            <option value="|">Вертикальная черта (|)</option>
+                            <option value=" ">Пробел</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="mb-3 flex-grow-1 text-center">
+                <label for="coloredTextareaS" class="form-label form-control-lg">Output Data</label>
+                <textarea class="form-control border-success bg-light shadow rounded-3 custom-scrollbar"
+                    id="coloredTextareaS" rows="4" readonly></textarea>
+                    <div class="mb-3 mt-3" style="visibility: hidden;">
+                        <label for="delimiterSelectNU" class="form-label">Выберите разделитель</label>
+                        <select class="form-select" id="delimiterSelectNU">
+                            <option value="," selected>Запятая (,)</option>
+                            <option value=";">Точка с запятой (;)</option>
+                            <option value="\t">Табуляция (Tab)</option>
+                            <option value="|">Вертикальная черта (|)</option>
+                            <option value=" ">Пробел</option>
+                        </select>
+                    </div>
+            </div>
+        </div>
+
+        <div class="container text-center">
+            <label for="csvFile" class="form-label">Загрузить файл</label>
+            <i class="bi-upload ms-2"></i>
+            <input class="form-control" type="file" id="csvFile" accept=".csv" multiple>
+            <button class="btn btn-dark mt-3 mb-4" id="convert">Convert to XLSX</button>
+            <button class="btn btn-danger mt-3 mb-4 d-none" id="btn-DELL">
+                <i class="bi-trash"></i> Удалить
+            </button>
+        </div>
+
+        <div class="cont table-responsive"></div>
+    </div>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-2 d-flex align-items-center justify-content-center flex-column">
+                    <h5>О сайте</h5>
+                    <p>Инструменты для работы с данными, текстами и файлами.</p>
+                </div>
+
+                <div class="col-md-4 mb-2 d-flex align-items-center justify-content-center flex-column">
+                    <h5>Ссылки</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Главная</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Контакты</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Услуги</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-2 d-flex align-items-center justify-content-center flex-column">
+                    <h5>Связаться с нами</h5>
+                    <p>Email: <a href="ra.md@mail.ru" class="text-white text-decoration-none">ra.md@mail.ru</a></p>
+                    <p>Телефон: +7 (920) 456-7890</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
